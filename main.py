@@ -23,8 +23,8 @@ async def create_snowboard(snowboard: Snowboard) -> Snowboard:
     snowboard_list.append(snowboard)
     return snowboard
 
-@app.put('/snowboards')
-async def update_snowbard(snowboard_id: None | int = None, updated_snowboard: Snowboard = None):
+@app.put('/snowboards/{snowboard_id}')
+async def update_snowbard(snowboard_id: int, updated_snowboard: Snowboard):
     
     for snowboard in snowboard_list:
         if snowboard['id'] == snowboard_id:
